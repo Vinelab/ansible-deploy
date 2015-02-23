@@ -43,3 +43,6 @@ key: ./deploy_ssh                       # The key file
 version: master                         # Which version to deploy
 remote_key_location: /tmp/deploy_ssh    # Where to temporarily add the key file while deploying (will be removed afterwards)
 ```
+
+#### Tags
+All tasks have the tag `deploy`
