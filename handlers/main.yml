@@ -1,0 +1,28 @@
+---
+-   name: composer install
+    docker:
+        image: ablafahita/site
+        privileged: True
+        memory_limit: 2GB
+        volumes:
+            - "{{location}}:/var/www/site"
+        command: /usr/local/bin/composer --working-dir=/var/www/site --no-interaction install
+    tags:
+        - deploy
+        - composer
+
+-   name: composer update
+    docker:
+        image: ablafahita/site
+        privileged: True
+        memory_limit: 2GB
+        volumes:
+            - "{{location}}:/var/www/site"
+        command: /usr/local/bin/composer --working-dir=/var/www/site --no-interaction update
+    tags:
+        - deploy
+        - composer
+
+-   name: open laravel storage directory
+    shell: chmod -R o+w app/storage chdir={{location}}
+    tags: deploy
