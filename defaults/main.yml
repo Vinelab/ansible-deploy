@@ -1,0 +1,3 @@
+key: ./deploy_ssh
+version: master
+remote_key_location: /tmp/deploy_ssh

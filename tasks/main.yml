@@ -1,0 +1,19 @@
+---
+-   name: "copy deployment key to remote location"
+    copy: src="{{key}}"
+        dest="{{remote_key_location}}"
+        mode=0400
+    tags: deploy
+
+-   name: "pull latest code version"
+    git: repo="{{repo}}"
+        dest="{{location}}"
+        accept_hostkey=yes
+        key_file="{{remote_key_location}}"
+        version="{{version}}"
+    tags: deploy
+
+-   name: remove remote deployment key
+    file: path="{{remote_key_location}}"
+        state=absent
+    tags: deploy
