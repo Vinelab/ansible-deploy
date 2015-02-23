@@ -27,7 +27,7 @@ git clone git@github.com:Vinelab/ansible-deploy roles
         location: /home/ec2-user/code/myapp     # where to deploy
 ```
 
-#### All Attributes
+#### All Variables
 ```yaml
 -   role: deploy
         repo: git@bitbucket.org:myproject/myapp
